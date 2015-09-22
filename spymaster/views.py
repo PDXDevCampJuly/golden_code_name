@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from random import  getrandbits, shuffle
+from game.models import *
 
 # Create your views here.
 
@@ -26,4 +27,8 @@ def create_game_deck():
         deck.extend(BEIGE)
         deck.append('bk')
     shuffle(deck)
-    return (is_blue,deck)
+    Card.objects.all().delete()
+    for card in deck:
+        person = Card(word='foo',card_type=card)
+        person.save()
+    Board.is_blue = is_blue

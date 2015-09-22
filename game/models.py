@@ -27,9 +27,6 @@ class Card(models.Model):
     word.max_length = 50
     selected = models.BooleanField
     selected.default = False
-    card_type = models.ForeignKey(Card__Type)
-
-class Card__Type(models.Model):
     BLUE = 'bl'
     RED = 'rd'
     BEIGE = 'bg'
@@ -40,4 +37,4 @@ class Card__Type(models.Model):
         (BEIGE, 'Bystander'),
         (BLACK, 'Assassin'),
     )
-    card_desc = models.CharField(max_length=2, choices=CODE_NAME_CHOICES)
+    card_type = models.CharField(max_length=2, choices=CODE_NAME_CHOICES)
