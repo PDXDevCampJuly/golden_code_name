@@ -22,12 +22,6 @@ class Clue(models.Model):
     num_of_cards = models.PositiveSmallIntegerField
     team = models.ForeignKey(Team)
 
-class Card(models.Model):
-    word = models.CharField
-    word.max_length = 50
-    selected = models.BooleanField
-    selected.default = False
-    card_type = models.ForeignKey(Card__Type)
 
 class Card__Type(models.Model):
     BLUE = 'bl'
@@ -41,3 +35,12 @@ class Card__Type(models.Model):
         (BLACK, 'Assassin'),
     )
     card_desc = models.CharField(max_length=2, choices=CODE_NAME_CHOICES)
+
+class Card(models.Model):
+    word = models.CharField
+    word.max_length = 50
+    selected = models.BooleanField
+    selected.default = False
+    card_type = models.ForeignKey(Card__Type)
+
+
