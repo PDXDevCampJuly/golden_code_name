@@ -10,32 +10,33 @@ header {
 
 /*launch game*/
 
-.launch a {
+a.launch  {
     padding: 50px 100px;
     color: #eee;
+    font-size: 1.5em;
     background-color: #333;
     text-decoration: none;
     border-radius: 10px;
 }
 
-.launch a:hover {
+a.launch:hover {
     background-color: #777;
 }
 
-.launch input {
+input.launch  {
     margin: 55px;
     color: crimson;
     text-decoration: none;
     border-radius: 10px;
 }
 
-.launch input:hover {
+input.launch:hover {
     background-color: #777;
 }
 
 /* select player */
 
-.select_player a {
+a.select_player {
     color: #eee;
     background-color: #333;
     text-decoration: none;
@@ -43,11 +44,11 @@ header {
     display: inline-block;
 }
 
-.select_player a:hover {
+a.select_player:hover  {
     background-color: #777;
 }
 
-.select_player a:nth-of-type(2) {
+a.select_player:nth-of-type(2) {
     background-color: blue;
     background-image: linear-gradient(rgba(255, 0, 0, 1) 50%, transparent 50%, transparent);
 }
