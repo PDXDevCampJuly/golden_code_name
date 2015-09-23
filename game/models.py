@@ -22,8 +22,11 @@ class Clue(models.Model):
     num_of_cards = models.PositiveSmallIntegerField
     team = models.ForeignKey(Team)
 
-
-class Card__Type(models.Model):
+class Card(models.Model):
+    word = models.CharField
+    word.max_length = 50
+    selected = models.BooleanField
+    selected.default = False
     BLUE = 'bl'
     RED = 'rd'
     BEIGE = 'bg'
@@ -34,13 +37,4 @@ class Card__Type(models.Model):
         (BEIGE, 'Bystander'),
         (BLACK, 'Assassin'),
     )
-    card_desc = models.CharField(max_length=2, choices=CODE_NAME_CHOICES)
-
-class Card(models.Model):
-    word = models.CharField
-    word.max_length = 50
-    selected = models.BooleanField
-    selected.default = False
-    card_type = models.ForeignKey(Card__Type)
-
-
+    card_type = models.CharField(max_length=2, choices=CODE_NAME_CHOICES)
