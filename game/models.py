@@ -11,8 +11,9 @@ class Team (models.Model):
     spies_left = models.PositiveSmallIntegerField(default=None)
 
 class Board(models.Model):
-    is_blue = models.BooleanField(primary_key = True, default=True)
+    is_blue = models.BooleanField(default=True)
     guesses_allowed = models.PositiveSmallIntegerField(default=0)
+    active_team = models.ForeignKey(Team, default=None)
 
 class Clue(models.Model):
     clue = models.CharField(max_length = 50, default=None)
