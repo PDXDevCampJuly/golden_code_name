@@ -1,0 +1,15 @@
+<h2>Cards</h2>
+{# all the card objects & prop #}
+{% for card in card_list %}
+<li>{{ card.id }}, {{ card.selected }}, {{ card.word }}</li>
+{% endfor %}
+
+{# all the game status properties #}
+
+<h2> Game Status </h2>
+{{ game_status.active_team.is_blue }}
+{{ game_status.active_team.spies_left }}
+{{ game_status.guesses_allowed }}
+
+<h2>Clue</h2>
+{# TODO because we need data to work with, however the var will be `clue`#}
