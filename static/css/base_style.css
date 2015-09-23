@@ -32,3 +32,46 @@ input:hover {
 
 }
 
+.started
+{
+    position: relative;
+}
+
+.started:after
+{
+    display: inline-block;
+    position: absolute;
+    box-shadow: 10px 5px 5px black;
+    opacity: 0.75;
+    bottom: 2em;
+    left:2em;
+    right:2em;    height: 0;
+    background: blue;
+    color: white;
+    border-radius: 12px;
+    border: 2px solid black;
+    padding: .25em;
+    content: 'Game is running, starting a new game will clear the old.';
+}
+.waiting
+{
+    position: relative;
+}
+
+.waiting:after
+{
+    display: inline-block;
+    position: absolute;
+    box-shadow: 10px 5px 5px black;
+    opacity: 0.75;
+    bottom: 0;
+    left:2em;
+    right:2em;
+    height: 2em;
+    background: blue;
+    color: white;
+    border-radius: 12px;
+    border: 2px solid black;
+    padding: .25em;
+    content: 'No game exists, start a new game before entering.';
+}
