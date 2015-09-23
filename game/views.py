@@ -66,3 +66,9 @@ def does_game_exist():
     else:
         return False
 
+def start_index_page(request):
+    if does_game_exist():
+        game_exist = {'game': 'started'}
+    else:
+        game_exist = {'game': 'waiting'}
+    return render(request, 'index.html', game_exist)
