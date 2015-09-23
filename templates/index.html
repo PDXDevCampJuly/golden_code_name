@@ -6,7 +6,8 @@
 {% block main_content %}
     <a class="launch">LAUNCH GAME</a>
 
-    <form>
         <input class="launch" type="button" value="RESET GAME">
+    <form class="{{ game }}">
+        <input type="button" value="RESET GAME">
     </form>
 {% endblock %}
