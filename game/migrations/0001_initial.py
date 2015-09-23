@@ -13,32 +13,33 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Board',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, verbose_name='ID', serialize=False)),
+                ('id', models.AutoField(auto_created=True, verbose_name='ID', primary_key=True, serialize=False)),
+                ('is_blue', models.BooleanField(default=True)),
+                ('guesses_allowed', models.PositiveSmallIntegerField(default=0)),
             ],
         ),
         migrations.CreateModel(
             name='Card',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, verbose_name='ID', serialize=False)),
-            ],
-        ),
-        migrations.CreateModel(
-            name='Card__Type',
-            fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, verbose_name='ID', serialize=False)),
-                ('card_desc', models.CharField(max_length=2, choices=[('bl', 'Blue Team'), ('rd', 'Red Team'), ('bg', 'Bystander'), ('bk', 'Assassin')])),
+                ('id', models.AutoField(auto_created=True, verbose_name='ID', primary_key=True, serialize=False)),
+                ('word', models.CharField(max_length=50, default=None)),
+                ('selected', models.BooleanField(default=False)),
+                ('card_type', models.CharField(choices=[('bl', 'Blue Team'), ('rd', 'Red Team'), ('bg', 'Bystander'), ('bk', 'Assassin')], max_length=2)),
             ],
         ),
         migrations.CreateModel(
             name='Clue',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, verbose_name='ID', serialize=False)),
+                ('id', models.AutoField(auto_created=True, verbose_name='ID', primary_key=True, serialize=False)),
+                ('clue', models.CharField(max_length=50, default=None)),
+                ('num_of_cards', models.PositiveSmallIntegerField(default=None)),
             ],
         ),
         migrations.CreateModel(
             name='Team',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, verbose_name='ID', serialize=False)),
+                ('is_blue', models.BooleanField(primary_key=True, serialize=False, default=True)),
+                ('spies_left', models.PositiveSmallIntegerField(default=None)),
             ],
         ),
         migrations.AddField(
@@ -47,8 +48,8 @@ class Migration(migrations.Migration):
             field=models.ForeignKey(to='game.Team'),
         ),
         migrations.AddField(
-            model_name='card',
-            name='card_type',
-            field=models.ForeignKey(to='game.Card__Type'),
+            model_name='board',
+            name='active_team',
+            field=models.ForeignKey(to='game.Team', default=None),
         ),
     ]

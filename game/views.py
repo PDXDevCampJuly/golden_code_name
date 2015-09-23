@@ -1,16 +1,17 @@
 from django.shortcuts import render
 from random import  getrandbits, shuffle
 from game.models import *
+from django.contrib.contenttypes.models import ContentType
 
 # Create your views here.
 
 
 def clear_game():
     """Resets all data in the database to nothing"""
-    Card.objects.all().delete()
-    Team.objects.all().delete()
     Board.objects.all().delete()
+    Card.objects.all().delete()
     Clue.objects.all().delete()
+    Team.objects.all().delete()
 
 def create_game_deck():
     """Creates the game"""
@@ -27,7 +28,7 @@ def create_game_deck():
         deck.extend(RED)
         deck.extend(BEIGE)
         deck.append('bk')
-        team = Team(is_blue=True,spies_left = 9)
+        team = Team(is_blue=True,spies_left = 9,)
         team.save()
         team = Team(is_blue=False,spies_left = 8)
         team.save()
@@ -50,9 +51,8 @@ def create_game_deck():
         person.save()
 
 def set_starting_board_conditions():
-    starting_line = Board(is_blue = False, guesses_allowed = 0)
-    starting_line.save()
-    starting_line = Board(is_blue = True, guesses_allowed = 0)
+    team_to_start = Team.objects.get(spies_left=9)
+    starting_line = Board(is_blue = False, guesses_allowed = 0, active_team=team_to_start)
     starting_line.save()
 
 def start_game():
@@ -65,3 +65,4 @@ def does_game_exist():
         return True
     else:
         return False
+
