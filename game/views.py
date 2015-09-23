@@ -59,3 +59,9 @@ def start_game():
     clear_game()
     create_game_deck()
     set_starting_board_conditions()
+
+def does_game_exist():
+    if Card.objects.count() > 0:
+        return True
+    else:
+        return False
