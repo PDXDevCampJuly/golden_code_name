@@ -66,4 +66,3 @@ def does_game_exist():
     else:
         return False
 
-start_game()
