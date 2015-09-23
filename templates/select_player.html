@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+{% extends "base.html" %}
+{% load staticfiles %}
 
-</body>
-</html>
+{% block title %} Select Player {% endblock %}
+
+{% block main_content %}
+    <a class="select_player">SPYMASTER</a>
+    <a class="select_player">PLAYERS</a>
+
+{% endblock %}
