@@ -67,6 +67,9 @@ def does_game_exist():
         return False
 
 def start_index_page(request):
+    if request.method == 'POST':
+        start_game()
+
     if does_game_exist():
         game_exist = {'game': 'started'}
     else:
