@@ -8,7 +8,9 @@ header {
     margin-bottom: 150px;
 }
 
-a {
+/*launch game*/
+
+.launch a {
     padding: 50px 100px;
     color: #eee;
     background-color: #333;
@@ -16,19 +18,37 @@ a {
     border-radius: 10px;
 }
 
-a:hover {
+.launch a:hover {
     background-color: #777;
 }
 
-input {
+.launch input {
     margin: 55px;
     color: crimson;
     text-decoration: none;
     border-radius: 10px;
 }
 
-input:hover {
+.launch input:hover {
     background-color: #777;
+}
 
+/* select player */
+
+.select_player a {
+    color: #eee;
+    background-color: #333;
+    text-decoration: none;
+    padding: 75px;
+    display: inline-block;
+}
+
+.select_player a:hover {
+    background-color: #777;
+}
+
+.select_player a:nth-of-type(2) {
+    background-color: blue;
+    background-image: linear-gradient(rgba(255, 0, 0, 1) 50%, transparent 50%, transparent);
 }
 
