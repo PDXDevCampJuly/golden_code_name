@@ -19,7 +19,7 @@ class GameBoardList(ListView):
         context = super(GameBoardList, self).get_context_data(**kwargs)
         context['game_status'] = Board.objects.get()
         # TODO once we have working clue data
-        # context['clue'] = Clue.objects.get().last()
+        context['clue'] = Clue.objects.all()
         return context
 
 
