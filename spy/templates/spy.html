@@ -1,15 +1,67 @@
-<h2>Cards</h2>
-{# all the card objects & prop #}
-{% for card in card_list %}
-<li>{{ card.id }}, {{ card.selected }}, {{ card.word }}</li>
-{% endfor %}
+{% extends "base.html" %}
+{% load staticfiles %}
 
-{# all the game status properties #}
+{% block title %} Spy {% endblock %}
 
-<h2> Game Status </h2>
-{{ game_status.active_team.is_blue }}
-{{ game_status.active_team.spies_left }}
-{{ game_status.guesses_allowed }}
+{% block custom_css_links %}
+  <link href='https://fonts.googleapis.com/css?family=Black+Ops+One' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="{% static "css/spy.css" %}">
+{% endblock %}
 
-<h2>Clue</h2>
-{# TODO because we need data to work with, however the var will be `clue`#}
+{% block main_content %}
+<div class="colmask">
+
+{% block header_text %} SPY {% endblock %}
+
+  <div class="colmid">
+    <div class="colleft">
+      <div class="col1">
+        <h2 id="current_clue">Trophy 2</h2>
+
+        {# all the card objects & prop #}
+        {% for card in card_list %}
+          <div class="card {{ card.selected }}" id="{{ card.id }}">{{ card.word }}</div>
+        {% endfor %}
+
+        {# all the game status properties #}
+
+        <h2> Game Status </h2>
+        {{ game_status.active_team.is_blue }}
+        {{ game_status.active_team.spies_left }}
+        {{ game_status.guesses_allowed }}
+
+        <h2>Clue</h2>
+        {# TODO because we need data to work with, however the var will be `clue`#}
+      </div>
+      <div class="col2">
+        <div class="guess_count_left">
+          <h2>GUESSES</h2>
+          <section id="guesses_blue">{{ game_status.guesses_allowed }}</section>
+        </div>
+        <div class="clue_history_left">
+          <h2>CLUES</h2>
+          <ol id="clues_blue">
+            <li>clue 1</li>
+            <li>clue 2</li>
+            <li>clue 3</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col3">
+        <div class="guess_count_right">
+          <h2>GUESSES</h2>
+          <section id="guess_red">7</section>
+        </div>
+        <div class="clue_history_right">
+          <h2>CLUES</h2>
+          <ol id="clues_red">
+            <li>clue 1</li>
+            <li>clue 2</li>
+            <li>clue 3</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

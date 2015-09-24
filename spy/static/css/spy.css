@@ -1,0 +1,125 @@
+/* -------------------------------------- layout */
+body {
+   padding: 0px;
+   margin: 0px;
+   font-family: sans-serif;
+   color: #eee;
+   text-align: center;
+}
+.colmask{
+   position: relative;
+   overflow: hidden;
+   margin: 0px auto;
+   width: 100%;
+   background-color: #33CC00;
+}
+header{
+   float: left;
+   width: 100%;
+}
+header, header h1 {
+  margin: 0;
+}
+.colmid{
+   position: relative;
+   width: 100%;
+   right: 20%;
+   background-color:
+}
+.colleft{
+   position: relative;
+   width: 100%;
+   right: 60%;
+   background-color: #CC99FF;
+}
+.header, .footer {
+  height: 10%;
+}
+.col1, .col2, .col3 {
+  height: 80%;
+}
+.col1{
+   position: relative;
+   overflow: hidden;
+   float: left;
+   width: 58%;
+   left: 101%;
+   background-color: #555;
+}
+.col2{
+   position: relative;
+   overflow: hidden;
+   float: left;
+   width: 18%;
+   left: 23%;
+   background-color: #66FF99;
+}
+.col3{
+   position: relative;
+   overflow: hidden;
+   float: left;
+   width: 18%;
+   left: 85%;
+   background-color: #66FF99;
+}
+footer{
+   float: left;
+   width: 100%;
+   background-color: #555;
+}
+
+/* -------------------------------------- guesses, clues */
+
+.guess_count_left, .guess_count_right, .clue_history_left, .clue_history_right {
+  background-color: #eee;
+}
+.guess_count_left, .guess_count_right {
+  height: 25%;
+  width: 100%;
+  text-align: center;
+  position: relative;
+}
+.guess_count_left section, .guess_count_right section {
+  font-family: 'Black Ops One';
+  color: #333;
+  font-size: 5em;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);;
+}
+.guess_count_left h2, .guess_count_right h2, .clue_history_left h2, .clue_history_right h2 {
+  background-color: #3333FF;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.guess_count_right h2, .clue_history_right h2 {
+  background-color: #CC0033;
+}
+.clue_history_left, .clue_history_right {
+  height: 60%;
+  width: 100%;
+  text-align: center;
+}
+ol {
+  text-align: left;
+  color: #333;
+}
+#current_clue {
+  background-color: #3333FF;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* -------------------------------------- cards */
+.card {
+  padding: 25px 35px;
+  background-color: #fff;
+  color: #555;
+  margin: 5px;
+  display: inline-block;
+  font-size: 2em;
+}
+
+
+
