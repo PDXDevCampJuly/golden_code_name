@@ -53,3 +53,14 @@ a.select_player:nth-of-type(2) {
     background-image: linear-gradient(rgba(255, 0, 0, 1) 50%, transparent 50%, transparent);
 }
 
+/* spy_input */
+
+input.clue:hover {
+    padding: 50px 100px;
+    color: #eee;
+    font-size: 1.5em;
+    background-color: #333;
+    text-decoration: none;
+    border-radius: 10px;
+
+}
