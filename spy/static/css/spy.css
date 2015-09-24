@@ -44,7 +44,7 @@ header, header h1 {
    float: left;
    width: 58%;
    left: 101%;
-   background-color: #555;
+   /* background-color: #555; */
 }
 .col2{
    position: relative;
@@ -113,13 +113,47 @@ ol {
 
 /* -------------------------------------- cards */
 .card {
-  padding: 25px 35px;
   background-color: #fff;
   color: #555;
   margin: 5px;
   display: inline-block;
-  font-size: 2em;
+  width: 125px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
+div.True.bl {
+  background-color: blue;
+  color: #fff;
+}
+div.True.rd {
+  background-color: red;
+  color: #fff;
+}
+div.True.bg {
+  background-color: beige;
+  color: #000;
+}
+div.True.bk {
+  background-color: #000;
+  color: #fff;
+}
+div.False.bl {
+  background-color: #33CCFF;
+  color: #fff;
+}
+div.False.rd {
+  background-color: #FF9999;
+  color: #fff;
+}
+div.False.bg {
+  background-color: #FFF;
+  color: #000;
+}
+div.False.bk {
+  background-color: #777;
+  color: #fff;
+}
+
 
 /* -------------------------------------- game status */
 #game_status {
