@@ -46,8 +46,12 @@ def create_game_deck():
         team = Team(is_blue=False,spies_left = 9)
         team.save()
     shuffle(deck)
+    these_words = []
+    for phrase in Dictionary_Words.objects.all():
+        these_words.append(phrase.list_of_words)
+    shuffle(these_words)
     for card in deck:
-        person = Card(word='foo',card_type=card)
+        person = Card(word=these_words.pop(),card_type=card)
         person.save()
 
 def set_starting_board_conditions():

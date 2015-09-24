@@ -34,3 +34,6 @@ class Card(models.Model):
         (BLACK, 'Assassin'),
     )
     card_type = models.CharField(max_length=2, choices=CODE_NAME_CHOICES)
+
+class Dictionary_Words(models.Model):
+    list_of_words = models.TextField(max_length=50, default=None)
