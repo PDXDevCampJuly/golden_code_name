@@ -1,38 +1,57 @@
+/* layout */
+
 body {
+    margin: 0;
     font-family: sans-serif;
     text-align: center;
     background-color: #eee;
 }
 
 header {
-    margin-bottom: 150px;
+    margin-bottom: 12%;
+    padding: 10px 0;
+    background-color: #ccc;
+    box-shadow: 0px 5px 15px #333;
+    color: #555;
 }
 
-/*launch game*/
-
-a.launch  {
-    padding: 50px 100px;
-    color: #eee;
-    font-size: 1.5em;
-    background-color: #333;
-    text-decoration: none;
-    border-radius: 10px;
-}
-
-a.launch:hover {
-    background-color: #777;
-}
+/* launch game */
 
 input.launch  {
+    padding: 45px 95px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.5em;
+    background-color: #555;
+    color: #eee;
+}
+
+input.restart {
     margin: 55px;
     color: crimson;
     text-decoration: none;
     border-radius: 10px;
 }
 
-input.launch:hover {
+input.launch:hover, input.restart:hover {
     background-color: #777;
 }
+
+#started:after, #waiting:after {
+    display: block;
+    content: 'status: game in progress, enter game';
+    margin-top: 5%;
+    margin-bottom: 5%;
+    padding: 20px 0;
+    background-color: #CC3333;
+    color: #eee;
+    font-size: 1.2em;
+}
+#waiting:after {
+    content: 'status: ready to start new game';
+    background-color: #009966;
+}
+
 
 /* select player */
 
@@ -51,48 +70,4 @@ a.select_player:hover  {
 a.select_player:nth-of-type(2) {
     background-color: blue;
     background-image: linear-gradient(rgba(255, 0, 0, 1) 50%, transparent 50%, transparent);
-}
-
-.started
-{
-    position: relative;
-}
-
-.started:after
-{
-    display: inline-block;
-    position: absolute;
-    box-shadow: 10px 5px 5px black;
-    opacity: 0.75;
-    bottom: 2em;
-    left:2em;
-    right:2em;    height: 0;
-    background: blue;
-    color: white;
-    border-radius: 12px;
-    border: 2px solid black;
-    padding: .25em;
-    content: 'Game is running, starting a new game will clear the old.';
-}
-.waiting
-{
-    position: relative;
-}
-
-.waiting:after
-{
-    display: inline-block;
-    position: absolute;
-    box-shadow: 10px 5px 5px black;
-    opacity: 0.75;
-    bottom: 0;
-    left:2em;
-    right:2em;
-    height: 2em;
-    background: blue;
-    color: white;
-    border-radius: 12px;
-    border: 2px solid black;
-    padding: .25em;
-    content: 'No game exists, start a new game before entering.';
 }
