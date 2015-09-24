@@ -4,10 +4,10 @@
 {% block title %} Game Status {% endblock %}
 
 {% block main_content %}
-  <form id="{{ game }}">
-    <input type="button" value="ENTER GAME" id="enter">
+  <form id="{{ game }}" action="{% url 'select_player' %}">
+    <input type="submit" value="ENTER GAME" id="enter">
     <br>
-    <input type="button" value="START NEW GAME" id="restart">
+    <input type="submit" value="START NEW GAME" id="restart">
   </form>
 {% endblock %}
 
