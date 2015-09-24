@@ -123,6 +123,7 @@ ol {
 
 /* -------------------------------------- game status */
 #game_status {
+  color: #555;
   margin-top: 200px;
 }
 
