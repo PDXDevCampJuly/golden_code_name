@@ -4,12 +4,13 @@
 {% block title %} Game Status {% endblock %}
 
 {% block main_content %}
-    <form id="{{ game }}">
-      <input type="button" value="ENTER GAME" class="launch">
-      <br>
-      <input type="button" value="START NEW GAME" class="restart">
-    </form>
+  <form id="{{ game }}">
+    <input type="button" value="ENTER GAME" id="enter">
+    <br>
+    <input type="button" value="START NEW GAME" id="restart">
+  </form>
 {% endblock %}
 
-<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-{% block js_scripts %}{% endblock %}
+{% block js_scripts %}
+  <script type="text/javascript" src="{% static "js/index.js" %}"></script>
+{% endblock %}

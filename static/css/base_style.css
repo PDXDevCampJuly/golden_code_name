@@ -15,9 +15,9 @@ header {
     color: #555;
 }
 
-/* launch game */
+/* enter or restart game */
 
-input.launch  {
+input#enter, input#restart  {
     padding: 45px 95px;
     border-radius: 10px;
     text-align: center;
@@ -26,21 +26,14 @@ input.launch  {
     color: #eee;
 }
 
-input.restart {
-    margin: 55px;
-    color: crimson;
-    text-decoration: none;
-    border-radius: 10px;
-}
-
-input.launch:hover, input.restart:hover {
+input#enter:hover, input#restart:hover {
     background-color: #777;
 }
 
 #started:after, #waiting:after {
     display: block;
     content: 'status: game in progress, enter game';
-    margin-top: 5%;
+    margin-top: 10%;
     margin-bottom: 5%;
     padding: 20px 0;
     background-color: #CC3333;
@@ -48,7 +41,7 @@ input.launch:hover, input.restart:hover {
     font-size: 1.2em;
 }
 #waiting:after {
-    content: 'status: ready to start new game';
+    content: 'status: ready, start new game';
     background-color: #009966;
 }
 
