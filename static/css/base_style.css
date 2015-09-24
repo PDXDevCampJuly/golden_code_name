@@ -8,59 +8,74 @@ body {
 }
 
 header {
-    margin-bottom: 12%;
+    margin-bottom: 10%;
     padding: 10px 0;
     background-color: #ccc;
     box-shadow: 0px 5px 15px #333;
     color: #555;
 }
 
-/* enter or restart game */
+footer {
+    margin-top: 100px;
+}
 
-input#enter, input#restart  {
-    padding: 45px 95px;
+input[type=submit] {
+    background-color: #555;
     border-radius: 10px;
     text-align: center;
     font-size: 1.5em;
-    background-color: #555;
     color: #eee;
 }
 
-input#enter:hover, input#restart:hover {
+input[type=submit]:hover {
     background-color: #777;
+}
+
+/* enter or restart game */
+
+input#enter, input#restart  {
+    height: 150px;
+    width: 400px;
+    display: none;
+}
+
+input#enter:hover, #started:after {
+    background-color: #245BAB;
+}
+
+input#restart:hover, #waiting:after {
+    background-color: #339966;
 }
 
 #started:after, #waiting:after {
     display: block;
     content: 'status: game in progress, enter game';
     margin-top: 10%;
-    margin-bottom: 5%;
     padding: 20px 0;
-    background-color: #CC3333;
     color: #eee;
     font-size: 1.2em;
 }
 #waiting:after {
     content: 'status: ready, start new game';
-    background-color: #009966;
 }
-
 
 /* select player */
-
-a.select_player {
-    color: #eee;
-    background-color: #333;
-    text-decoration: none;
-    padding: 75px;
-    display: inline-block;
+input#select_spymaster, input#select_spy {
+    margin-right: 20px;
+    margin-bottom: 20px;
+    height: 300px;
+    width: 300px;
 }
 
-a.select_player:hover  {
-    background-color: #777;
+input#select_spy {
+    background: linear-gradient(to bottom right, red 50%, blue 50%);
 }
 
-a.select_player:nth-of-type(2) {
-    background-color: blue;
-    background-image: linear-gradient(rgba(255, 0, 0, 1) 50%, transparent 50%, transparent);
+input#select_spy:hover {
+    background: linear-gradient(to bottom right, #CC6666 50%, #3366FF 50%);
 }
+
+
+
+
+
