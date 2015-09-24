@@ -1,7 +1,7 @@
-var $form = $("form");
+var $span = $("span");
 
 // status either started or waiting
-if ($form.attr('id') === "started") {
+if ( $span.attr('id') === "started" ) {
   $("#enter").show()
   $("#restart").hide()
 } else {
