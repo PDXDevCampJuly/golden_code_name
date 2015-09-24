@@ -11,7 +11,7 @@ body {
    overflow: hidden;
    margin: 0px auto;
    width: 100%;
-   background-color: #33CC00;
+   background-color:
 }
 header{
    float: left;
@@ -119,6 +119,11 @@ ol {
   margin: 5px;
   display: inline-block;
   font-size: 2em;
+}
+
+/* -------------------------------------- game status */
+#game_status {
+  margin-top: 200px;
 }
 
 
