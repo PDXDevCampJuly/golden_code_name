@@ -76,3 +76,8 @@ def start_index_page(request):
     else:
         game_exist = {'game': 'waiting'}
     return render(request, 'index.html', game_exist)
+
+def select_player(request):
+    return render(request, 'select_player.html')
+
+
