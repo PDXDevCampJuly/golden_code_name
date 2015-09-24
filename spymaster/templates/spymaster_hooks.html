@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spymaster</title>
+    <style>
+        li
+        {
+            display: inline-block;
+            content: 'status: game in progress, enter game';
+            margin: 5%;
+            padding: 20px;
+            font-size: 1.2em;
+        }
+
+        .selected
+        {
+            box-shadow: 10px 5px 5px black;
+            opacity: 0.5;
+        }
+
+        .bl
+        {
+            background-color: blue;
+        }
+        .rd
+        {
+            background-color: red;
+        }
+        .bg
+        {
+            background-color: beige;
+        }
+        .bk
+        {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<hi>{%  if turn.active_team.is_blue == True %}
+    Blue Team
+    {% else %}
+    Red Team
+    {% endif %}
+</hi>
+<p>These are your choices:</p>
+
+<ul>
+    {% for card in game_board.all %}
+    <li class="{% if card.selected == True %} selected {% endif %}{{ card.card_type }}">Place:{{ forloop.counter }}<br />{{ card.word }}</li>
+    {% endfor %}
+</ul>
+<form method="post">{% csrf_token %}
+    <input type="text" name="clue">
+    <input type="text" name="moves">
+    <input type="submit">
+</form>
+</body>
+</html>
