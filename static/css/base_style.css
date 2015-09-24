@@ -1,5 +1,4 @@
-/* layout */
-
+/* -------------------------------------- layout */
 body {
     margin: 0;
     font-family: sans-serif;
@@ -31,7 +30,7 @@ input[type=submit]:hover {
     background-color: #777;
 }
 
-/* enter or restart game */
+/* -------------------------------------- enter or restart game */
 
 input#enter, input#restart  {
     height: 150px;
@@ -59,7 +58,7 @@ input#restart:hover, #waiting:after {
     content: 'status: ready, start new game';
 }
 
-/* select player */
+/* -------------------------------------- select player */
 input#select_spymaster, input#select_spy {
     margin-right: 20px;
     margin-bottom: 20px;
