@@ -6,8 +6,10 @@
 {% block main_content %}
   <form id="{{ game }}" action="{% url 'select_player' %}">
     <input type="submit" value="ENTER GAME" id="enter">
-    <br>
-    <input type="submit" value="START NEW GAME" id="restart">
+  </form>
+
+  <form id="{{ game }}" method="POST">{% csrf_token %}
+    <input name='foo' type="submit" value="START NEW GAME" id="restart">
   </form>
 {% endblock %}
 
