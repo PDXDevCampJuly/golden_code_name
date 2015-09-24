@@ -8,6 +8,7 @@
   <meta name="keywords" content="HTML, CSS, XML, JavaScript, Python, Django">
   <meta name="author" content="Max, Nehemiah, Summer, Michael - PDX Code Guild">
   <link rel="stylesheet" type="text/css" href="{% static "css/base_style.css" %}">
+  {% block custom_css_links %}{% endblock %}
   <title>{% block title %}{% endblock %} | Golden Code Name</title>
 
 </head>

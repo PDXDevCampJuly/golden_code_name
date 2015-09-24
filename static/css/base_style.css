@@ -46,7 +46,7 @@ input#restart:hover, #waiting:after {
     background-color: #339966;
 }
 
-#started:after, #waiting:after {
+#started:after {
     display: block;
     content: 'status: game in progress, enter game';
     margin-top: 10%;
@@ -55,7 +55,16 @@ input#restart:hover, #waiting:after {
     font-size: 1.2em;
 }
 #waiting:after {
+     display: block;
+    margin-top: 10%;
+    padding: 20px 0;
+    color: #eee;
+    font-size: 1.2em;
     content: 'status: ready, start new game';
+}
+input[value=reset] {
+    font-size: 1em;
+    border-radius: 5px;
 }
 
 /* -------------------------------------- select player */
