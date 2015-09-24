@@ -1,13 +1,15 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 
-{% block title %} launch game {% endblock %}
+{% block title %} Game Status {% endblock %}
 
 {% block main_content %}
-    <a class="launch">LAUNCH GAME</a>
-
-        <input class="launch" type="button" value="RESET GAME">
-    <form class="{{ game }}">
-        <input type="button" value="RESET GAME">
+    <form id="{{ game }}">
+      <input type="button" value="ENTER GAME" class="launch">
+      <br>
+      <input type="button" value="START NEW GAME" class="restart">
     </form>
 {% endblock %}
+
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+{% block js_scripts %}{% endblock %}
