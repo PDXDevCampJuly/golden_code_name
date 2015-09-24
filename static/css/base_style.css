@@ -94,4 +94,14 @@ input.clue:hover {
     border-radius: 10px;
 
 }
+/* spy_pass */
+input.pass:hover {
+    padding: 50px 100px;
+    color: mediumpurple;
+    font-size: 1.5em;
+    background-color: darkslategrey;
+    text-decoration: none;
+    border-radius: 10px;
+
+}
 
