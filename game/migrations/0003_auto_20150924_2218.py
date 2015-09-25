@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-from game.models import Dictionary_Words
+from game.views import Dictionary_Words
 from django.db import models, migrations
+
 def populate_dict(apps, schema_editor):
     wordlist = ['woodcraft','woodcraft','woodcut','wooded','woof','wool','woozy','word','work','world','worm',
                 'vegetable','vehement','vehicle','version','versus','vertigo','very','vesicle','vestige',
@@ -14,12 +15,10 @@ def populate_dict(apps, schema_editor):
         theword.save()
 
 
-
-
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('game', '0001_initial'),
+        ('game', '0002_auto_20150924_2215'),
     ]
 
     operations = [

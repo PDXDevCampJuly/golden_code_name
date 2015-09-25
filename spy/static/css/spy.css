@@ -20,17 +20,28 @@ header{
 header, header h1 {
   margin: 0;
 }
+h2 {
+  border-radius: 5px;
+}
+footer{
+   float: left;
+   width: 100%;
+   color: #333;
+}
+
+/* -------------------------------------- columns */
+
 .colmid{
    position: relative;
    width: 100%;
    right: 20%;
-   background-color:
+   /* background-color: */
 }
 .colleft{
    position: relative;
    width: 100%;
    right: 60%;
-   background-color: #CC99FF;
+   /* background-color: #CC99FF; */
 }
 .header, .footer {
   height: 10%;
@@ -44,7 +55,7 @@ header, header h1 {
    float: left;
    width: 58%;
    left: 101%;
-   background-color: #555;
+   /* background-color: #555; */
 }
 .col2{
    position: relative;
@@ -52,7 +63,7 @@ header, header h1 {
    float: left;
    width: 18%;
    left: 23%;
-   background-color: #66FF99;
+   /* background-color: #66FF99; */
 }
 .col3{
    position: relative;
@@ -60,12 +71,7 @@ header, header h1 {
    float: left;
    width: 18%;
    left: 85%;
-   background-color: #66FF99;
-}
-footer{
-   float: left;
-   width: 100%;
-   background-color: #555;
+   /* background-color: #66FF99; */
 }
 
 /* -------------------------------------- guesses, clues */
@@ -74,7 +80,7 @@ footer{
   background-color: #eee;
 }
 .guess_count_left, .guess_count_right {
-  height: 25%;
+  height: 125px;
   width: 100%;
   text-align: center;
   position: relative;
@@ -113,18 +119,52 @@ ol {
 
 /* -------------------------------------- cards */
 .card {
-  padding: 25px 35px;
   background-color: #fff;
   color: #555;
   margin: 5px;
   display: inline-block;
-  font-size: 2em;
+  width: 125px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
+div.True.bl {
+  background-color: blue;
+  color: #fff;
+}
+div.True.rd {
+  background-color: red;
+  color: #fff;
+}
+div.True.bg {
+  background-color: beige;
+  color: #000;
+}
+div.True.bk {
+  background-color: #000;
+  color: #fff;
+}
+div.False.bl {
+  background-color: #33CCFF;
+  color: #fff;
+}
+div.False.rd {
+  background-color: #FF9999;
+  color: #fff;
+}
+div.False.bg {
+  background-color: #FFF;
+  color: #777;
+}
+div.False.bk {
+  background-color: #777;
+  color: #fff;
+}
+
 
 /* -------------------------------------- game status */
 #game_status {
   color: #555;
-  margin-top: 200px;
+  margin-top: 50px;
 }
 
 

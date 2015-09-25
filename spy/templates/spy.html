@@ -22,7 +22,7 @@
 
         {# all the card objects & prop #}
         {% for card in card_list %}
-          <div class="card {{ card.selected }}" id="{{ card.id }}">{{ card.word }}</div>
+          <div class="card {{ card.selected }} {{ card.card_type }}" id="{{ card.id }}">{{ card.word }}</div>
         {% endfor %}
       </div>
 
