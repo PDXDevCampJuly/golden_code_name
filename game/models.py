@@ -6,23 +6,9 @@ import datetime
 
 # code_name Table
 
-class Team (models.Model):
-    is_blue = models.BooleanField(primary_key = True, default=True)
-    spies_left = models.PositiveSmallIntegerField(default=None)
+class Color(models.Model):
+    """ This table holds the colors for the game """
 
-class Board(models.Model):
-    is_blue = models.BooleanField(default=True)
-    guesses_allowed = models.PositiveSmallIntegerField(default=0)
-    active_team = models.ForeignKey(Team, default=None)
-
-class Clue(models.Model):
-    clue = models.CharField(max_length = 50, default=None)
-    num_of_cards = models.PositiveSmallIntegerField(default=None)
-    team = models.ForeignKey(Team)
-
-class Card(models.Model):
-    word = models.CharField(max_length = 50, default=None)
-    selected = models.BooleanField(default = False)
     BLUE = 'bl'
     RED = 'rd'
     BEIGE = 'bg'
@@ -33,7 +19,37 @@ class Card(models.Model):
         (BEIGE, 'Bystander'),
         (BLACK, 'Assassin'),
     )
-    card_type = models.CharField(max_length=2, choices=CODE_NAME_CHOICES)
+    color = models.CharField(choices=CODE_NAME_CHOICES, max_length=2)
 
-class Dictionary_Words(models.Model):
-    list_of_words = models.TextField(max_length=50, default=None)
+
+class Game(models.Model):
+    """This table holds all the games on the site """
+    current_turn = models.ForeignKey(Color)
+
+
+class Team (models.Model):
+    """ Table that holds all Teams """
+    spies_left = models.PositiveSmallIntegerField(blank=True)
+    color_id = models.ForeignKey(Color)
+    game_id = models.ForeignKey(Game)
+
+
+class Clue(models.Model):
+    """ This table holds the clue and number from Spy Master """
+    game_id = models.ForeignKey(Game)
+    team_id = models.ForeignKey(Team)
+    hint = models.CharField(max_length=50, default=None)
+    number = models.PositiveSmallIntegerField(default=None)
+
+
+class Word(models.Model):
+    """ This table holds the words """
+    word = models.CharField(max_length=50, primary_key=True)
+
+
+class Card(models.Model):
+    """This table holds the card content  """
+    word_id = models.ForeignKey(Word)
+    game_id = models.ForeignKey(Game)
+    color_id = models.ForeignKey(Color)
+    is_revealed = models.BooleanField(default=False)
