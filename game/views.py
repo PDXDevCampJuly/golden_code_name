@@ -1,87 +1,60 @@
-from django.shortcuts import render
-from random import  getrandbits, shuffle
+from django.shortcuts import render, redirect
+from random import choice, shuffle
 from game.models import *
 from django.contrib.contenttypes.models import ContentType
 
 # Create your views here.
 
 
-def clear_game():
-    """Resets all data in the database to nothing"""
-    Board.objects.all().delete()
-    Card.objects.all().delete()
-    Clue.objects.all().delete()
-    Team.objects.all().delete()
 
-def create_game_deck():
-    """Creates the game"""
-    # init deck
-    deck = []
+def new_game():
+    # wanting to initialize red and blue turns 50% of the time
+    possible_starting_colors = [Color.objects.get(color='bl'), Color.objects.get(color='rd')]
+    starting_color = choice(possible_starting_colors)
+    current_game = Game(current_turn=starting_color)
+    current_game.save()
 
-    #get starting team
-    blueness = bool(getrandbits(1))
-    if blueness == 1:
-        BLUE = ['bl'] * 9
-        RED = ['rd'] * 8
-        BEIGE = ['bg'] *7
-        deck.extend(BLUE)
-        deck.extend(RED)
-        deck.extend(BEIGE)
-        deck.append('bk')
-        team = Team(is_blue=True,spies_left = 9,)
-        team.save()
-        team = Team(is_blue=False,spies_left = 8)
-        team.save()
-        #Sets the team that DOESN'T start, turn switching logic is allowed to switch it to the initial player.
-    else:
-        BLUE = ['bl'] * 8
-        RED = ['rd'] * 9
-        BEIGE = ['bg'] *7
-        deck.extend(BLUE)
-        deck.extend(RED)
-        deck.extend(BEIGE)
-        deck.append('bk')
-        team = Team(is_blue=True,spies_left = 8)
-        team.save()
-        team = Team(is_blue=False,spies_left = 9)
-        team.save()
-    shuffle(deck)
-    these_words = []
-    for phrase in Dictionary_Words.objects.all():
-        these_words.append(phrase.list_of_words)
-    shuffle(these_words)
-    for card in deck:
-        person = Card(word=these_words.pop(),card_type=card)
-        person.save()
+    possible_starting_colors.pop(possible_starting_colors.index(starting_color))
 
-def set_starting_board_conditions():
-    team_to_start = Team.objects.get(spies_left=9)
-    starting_line = Board(is_blue = False, guesses_allowed = 0, active_team=team_to_start)
-    starting_line.save()
+    new_team = Team(game_id=current_game, color_id=starting_color, spies_left=9)
+    new_team.save()
+    new_team_two = Team(game_id=current_game, color_id=possible_starting_colors[0],
+                        spies_left=8)
+    new_team_two.save()
 
-def start_game():
-    clear_game()
-    create_game_deck()
-    set_starting_board_conditions()
+    list_of_words = []
+    for word in Word.objects.order_by('?')[:25]:
+        list_of_words.append(word)
 
-def does_game_exist():
-    if Card.objects.count() > 0:
-        return True
-    else:
-        return False
+    Card(color_id=Color.objects.get(color='bk'), word_id=list_of_words.pop(),
+         game_id=current_game).save()
+
+    beige = Color.objects.get(color='bg')
+    for bystander in range(7):
+        Card(color_id=beige,
+             word_id=list_of_words.pop(),
+             game_id=current_game).save()
+
+    for starting_team in range(9):
+        Card(color_id=starting_color,
+             word_id=list_of_words.pop(),
+             game_id=current_game).save()
+
+
+
+    for starting_team in range(8):
+        Card(color_id=possible_starting_colors[0],
+             word_id=list_of_words.pop(),
+             game_id=current_game).save()
+
 
 def start_index_page(request):
-
     if request.method == 'POST':
-        start_game()
-
-    if does_game_exist():
-        game_exist = {'game': 'started'}
+        new_game()
+        return redirect('/select/')
     else:
-        game_exist = {'game': 'waiting'}
-    return render(request, 'index.html', game_exist)
+        return render(request, 'index.html')
+
 
 def select_player(request):
     return render(request, 'select_player.html')
-
-
