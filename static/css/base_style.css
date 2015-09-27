@@ -1,11 +1,12 @@
+
 /* -------------------------------------- layout */
+
 body {
     margin: 0;
     font-family: sans-serif;
     text-align: center;
     background-color: #eee;
 }
-
 header {
     margin-bottom: 10%;
     padding: 10px 0;
@@ -13,77 +14,47 @@ header {
     box-shadow: 0px 5px 15px #333;
     color: #555;
 }
-
 footer {
     margin-top: 100px;
 }
-
-input[type=submit], input[type=button] {
+input[type=submit] {
     background-color: #555;
     border-radius: 10px;
     text-align: center;
     font-size: 1.5em;
     color: #eee;
 }
-
-input[type=submit]:hover, input[type=button]:hover {
+input[type=submit]:hover {
     background-color: #777;
 }
 
-/* -------------------------------------- enter or restart game */
+/* -------------------------------------- start game */
 
-input#enter, input#restart  {
+input[value="START NEW GAME"]  {
     height: 150px;
     width: 400px;
-    display: none;
 }
 
-input#enter:hover, #started:after {
-    background-color: #245BAB;
-}
-
-input#restart:hover, #waiting:after {
+input[value="START NEW GAME"]:hover {
     background-color: #339966;
 }
 
-#started:after {
-    display: block;
-    content: 'status: game in progress, enter game';
-    margin-top: 10%;
-    padding: 20px 0;
-    color: #eee;
-    font-size: 1.2em;
-}
-#waiting:after {
-     display: block;
-    margin-top: 10%;
-    padding: 20px 0;
-    color: #eee;
-    font-size: 1.2em;
-    content: 'status: ready, start new game';
-}
-input[value=reset] {
-    font-size: 1em;
-    border-radius: 5px;
-}
-
 /* -------------------------------------- select player */
+
 input#select_spymaster, input#select_spy {
     margin-right: 20px;
     margin-bottom: 20px;
     height: 300px;
     width: 300px;
 }
-
 input#select_spy {
     background: linear-gradient(to bottom right, red 50%, blue 50%);
 }
-
 input#select_spy:hover {
     background: linear-gradient(to bottom right, #CC6666 50%, #3366FF 50%);
 }
 
-/* spy_input */
+/* -------------------------------------- spy_input */
 
 input.clue:hover {
     padding: 50px 100px;
@@ -94,7 +65,9 @@ input.clue:hover {
     border-radius: 10px;
 
 }
-/* spy_pass */
+
+/* -------------------------------------- spy_pass */
+
 input.pass:hover {
     padding: 50px 100px;
     color: mediumpurple;
@@ -102,6 +75,5 @@ input.pass:hover {
     background-color: darkslategrey;
     text-decoration: none;
     border-radius: 10px;
-
 }
 
